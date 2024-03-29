@@ -1,6 +1,4 @@
 (async function() {
-    'use strict';
-    // Your code here
     function delay(){
         return new Promise(() => {});
     }

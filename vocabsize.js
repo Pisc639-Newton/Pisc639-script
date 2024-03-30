@@ -2,6 +2,11 @@
     function delay(){
         return new Promise(() => {});
     }
+    function delaym(milliseconds){
+        return new Promise(resolve => {
+            setTimeout(resolve, milliseconds);
+        });
+    }
     $("#btn_start_now").click()
 
     var input = document.getElementsByClassName("mg-10 user_ans answer-input");
@@ -85,6 +90,6 @@
     delay();
     $(".footer .container-fluid .row .col-6 .btn_save").click();
     $('#btn_skip button').click();
-    delay(2000);
+    delaym(2000);
     window.history.go(-1);
 })();

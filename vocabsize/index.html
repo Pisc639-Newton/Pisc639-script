@@ -1,1 +1,108 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pisc639 Script Library</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/glitch-slap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Glitch Slap', sans-serif;
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+        body {
+            background-color: #222;
+            color: #7eeee7;
+            text-align: center;
+            font-size: 18px;
+            padding: 20px;
+            size: 100%;
+        }
+        header {
+            background-color: #111;
+            color: #7eeee7;
+            padding: 10px;
+            box-shadow: 0 0 15px 5px #7eeee7;
+        }
+        footer {
+            background-color: #111;
+            color: #7eeee7;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            border-top: 5px solid #7eeee7;
+            box-shadow: 0 0 15px 5px #7eeee7;
+            font-size: 12px;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        button {
+            background-color: #111;
+            color: #7eeee7;
+            font-size: 24px;
+            padding: 10px 20px;
+            border: 3px solid #7eaeee;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #212E30;
+        }
+        .description {
+            margin-top: 20px;
+            color: #7eaeee;
+        }
+        h1 {
+            font-size: 24px;
+            color: #7eeee7;
+        }
+    </style>    
+    <script>
+        function addBookmark(name, num) {
+            const isMac = navigator.userAgent.toLowerCase().indexOf('mac') != -1;
+            const keyName = isMac ? 'Command/Cmd' : 'CTRL';
+            const addFunc = window.sidebar ? window.sidebar.addPanel : window.external && window.external.AddFavorite;
+            $('#bookmarkme').click(function() {
+                if (addFunc) {
+                    addFunc(location.href, name);
+                } else {
+                    alert(`Press ${keyName} + D to bookmark this page.`);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Pisc639 Script Library</h1>
+    </header>
+    <main>
+        <p style="font-size: 20px;" class="description">Click to add the script to your bookmarks.</p>
+        <button onclick="addBookmark('vocabsize', 0)" id="bookmarkme">Vocabsize</button>
+    </main>
+    <footer>
+        <p>All scripts were made by Pisc639.</p>
+    </footer>
+    <script>
+        if (window.sidebar || window.external || (navigator.userAgent.indexOf('Mac') != -1 && 'openDirectory' in navigator)) {
+            // browser is supported bookmark
+        } else {
+            // browser is not supported bookmark
+            var main = document.getElementsByTagName("main")[0];
+            while (main.firstChild) {
+                main.removeChild(main.firstChild);
+            }
+        }
+    </script>
+</body>
+</html>
+

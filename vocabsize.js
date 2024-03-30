@@ -84,4 +84,5 @@
     });
     delay();
     $(".footer .container-fluid .row .col-6 .btn_save").click();
+    $('#btn_skip button').click()
 })();

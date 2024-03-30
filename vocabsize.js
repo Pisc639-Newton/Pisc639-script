@@ -36,25 +36,6 @@
         cldd_id: "",
     };
 
-    const transformedPayload = {};
-
-    // for (let i in payload) {
-    // //   console.log(i)
-    //   let initVal = payload[i];
-    //   if (i == "vocabs") {
-    //     let vocabs = [];
-    // for (let j = 0; j < inputs; j++) {
-    //   console.log({ test_word_id: inputs[j], tst_vocab_status: "1" })
-    //   vocabs.push({ test_word_id: inputs[j], tst_vocab_status: "1" });
-    // }
-    //     // console.log(vocabs)
-    //     initVal = vocabs;
-    //   }
-    //   transformedPayload[i] = initVal
-    // }
-
-    // vocab section
-
     $(".btn-outline-unselected").click();
 
     let transformedVocab = [];
@@ -66,13 +47,9 @@
 
     console.log(window.location.pathname)
 
-    // class identifier
-    let classId = window.location.pathname.split("/")[window.location.pathname.split("/").length - 2]
-    // console.log(classId)
     payload.special_key = $("#special_key").val()
     payload.assignment_id = $("#assignment_id").val()
 
-    // Time
     let rantime = Math.floor(60 * (Math.random() *  14+19))
     payload.usage_time = rantime
     try { document.querySelector("#practice_usage_time").value = rantime; } catch(e) {}
@@ -90,6 +67,8 @@
     delay();
     $(".footer .container-fluid .row .col-6 .btn_save").click();
     $('#btn_skip button').click();
-    delaym(2000);
-    window.history.go(-1);
+    if (window.location.pathname.includes('basic') || window.location.pathname.includes('practice') || window.location.pathname.includes('checklist')) {
+        delaym(2000);
+        window.history.go(-1);
+    }
 })();

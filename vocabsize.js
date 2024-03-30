@@ -67,8 +67,8 @@
     delay();
     $(".footer .container-fluid .row .col-6 .btn_save").click();
     $('#btn_skip button').click();
-    if (window.location.pathname.includes('basic') || window.location.pathname.includes('practice') || window.location.pathname.includes('checklist')) {
         delaym(2000);
+    if (window.location.pathname.includes('basic') || window.location.pathname.includes('practice') || window.location.pathname.includes('checklist')) {
         window.history.go(-1);
     }
 })();

@@ -71,6 +71,6 @@
     try {$('img').filter(function() {var src = $(this).attr('src');return src === "https://vocabsize.xeersoft.co.th/assets/images/my_vocab_assign.png";})[0].click()} catch {}
     delaym(2000);
     if (window.location.pathname.includes('basic') || window.location.pathname.includes('practice') || window.location.pathname.includes('checklist')) {
-        location.assign(`https://vocabsize.xeersoft.co.th/student-assigned-list/${Number($("span#studentid")[0].innerText)}/0`)
+        if ('referrer' in document) {window.location = document.referrer;} else {window.history.back();};
     }
 })();

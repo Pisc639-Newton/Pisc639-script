@@ -68,20 +68,8 @@
     $(".footer .container-fluid .row .col-6 .btn_save").click();
     $('#btn_skip button').click();
     try {$('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style && style.includes('background:') && !style.includes('background-color:');})[0].click();} catch (error) {console.error(error);}    try {$('img').filter(function() {var src = $(this).attr('src');return src === "https://vocabsize.xeersoft.co.th/assets/images/my_vocab_assign.png";})[0].click()} catch {}
-    delaym(2000);
+    delay();
     if (window.location.pathname.includes('basic') || window.location.pathname.includes('practice') || window.location.pathname.includes('checklist')) {
-        /*
-        if (window.location.pathname.includes('basic')) {
-            window.location.replace("https://vocabsize.xeersoft.co.th/dashboard");
-        } else {
-            if ('referrer' in document) {
-                delay();
-                window.location = document.referrer;
-            } else {
-                window.history.back();
-            }
-        }
-        */
-        window.location.replace(`https://vocabsize.xeersoft.co.th/student-assigned-list/${Number($("span#studentid")[0].innerText)}/0`);
+                window.location.replace(`https://vocabsize.xeersoft.co.th/student-assigned-list/${Number($("span#studentid")[0].innerText)}/0`);
     }
 })();

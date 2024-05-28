@@ -82,6 +82,6 @@
             }
         }
         */
-        window.location.replace("https://vocabsize.xeersoft.co.th/dashboard");
+        window.location.replace(`https://vocabsize.xeersoft.co.th/student-assigned-list/${Number($("span#studentid")[0].innerText)}/0`);
     }
 })();

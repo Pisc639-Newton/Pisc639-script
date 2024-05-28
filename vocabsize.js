@@ -67,7 +67,7 @@
     delay();
     $(".footer .container-fluid .row .col-6 .btn_save").click();
     $('#btn_skip button').click();
-    try {$('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style === "background: linear-gradient(to top, #679ABF 99%, #6D6E71 1%);border-radius:15px;" ||style === "background: linear-gradient(to bottom, #6D6E71 100%, #679ABF 0% );border-radius:15px;";})[0].click()} catch {}
+    try {$('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style === "background: linear-gradient(to top, #679ABF, #6D6E71 1%);border-radius:15px;" ||style === "background: linear-gradient(to bottom, #6D6E71 100%, #679ABF 0% );border-radius:15px;";})[0].click()} catch {}
     try {$('img').filter(function() {var src = $(this).attr('src');return src === "https://vocabsize.xeersoft.co.th/assets/images/my_vocab_assign.png";})[0].click()} catch {}
     delaym(2000);
     if (window.location.pathname.includes('basic') || window.location.pathname.includes('practice') || window.location.pathname.includes('checklist')) {
@@ -75,7 +75,7 @@
             window.location = "https://vocabsize.xeersoft.co.th/dashboard";
         } else {
             if ('referrer' in document) {
-                delaym(500)
+                delay();
                 window.location.pathname = document.referrer;
             } else {
                 window.history.back();

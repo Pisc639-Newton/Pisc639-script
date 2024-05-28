@@ -71,7 +71,7 @@
     delaym(2000);
     if (window.location.pathname.includes('basic') || window.location.pathname.includes('practice') || window.location.pathname.includes('checklist')) {
         if (window.location.pathname.includes('checklist')) {
-            window.location = "https://vocabsize.xeersoft.co.th/dashboard";
+            window.location.herf = "https://vocabsize.xeersoft.co.th/dashboard";
         } else {
             if ('referrer' in document) {
                 delay();

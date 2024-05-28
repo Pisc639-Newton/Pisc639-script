@@ -71,5 +71,6 @@
     delaym(2000);
     if (window.location.pathname.includes('basic') || window.location.pathname.includes('practice') || window.location.pathname.includes('checklist')) {
         window.history.go(-1);
+        location.reload();
     }
 })();

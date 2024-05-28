@@ -70,6 +70,7 @@
     try {$('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style && style.includes('background:') && !style.includes('background-color:');})[0].click();} catch (error) {console.error(error);}    try {$('img').filter(function() {var src = $(this).attr('src');return src === "https://vocabsize.xeersoft.co.th/assets/images/my_vocab_assign.png";})[0].click()} catch {}
     delaym(2000);
     if (window.location.pathname.includes('basic') || window.location.pathname.includes('practice') || window.location.pathname.includes('checklist')) {
+        /*
         if (window.location.pathname.includes('basic')) {
             window.location.replace("https://vocabsize.xeersoft.co.th/dashboard");
         } else {
@@ -80,5 +81,7 @@
                 window.history.back();
             }
         }
+        */
+        window.location.replace("https://vocabsize.xeersoft.co.th/dashboard");
     }
 })();

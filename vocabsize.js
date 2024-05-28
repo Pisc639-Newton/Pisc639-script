@@ -75,7 +75,7 @@
         } else {
             if ('referrer' in document) {
                 delay();
-                window.location.pathname = document.referrer;
+                window.location = document.referrer;
             } else {
                 window.history.back();
             }

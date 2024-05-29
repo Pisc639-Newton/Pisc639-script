@@ -36,7 +36,7 @@ toggle.appendChild(toggle_txt)
 toggle_btn.innerText = "Enable"
 toggle_btn.style.width = "auto"
 toggle_btn.style.borderBottomWidth = "0"
-toggle_btn.setAttribute('onclick','activated = !activated; toggle_btn.innerText = activated ? "Disable" : "Enable"; toggle_txt.innerText = activated ? "Done All: Enabled" : "Done All: Disabled"; toggle_txt.style.color = activated ? "green" : "red"; localStorage.setItem("activate", localStorage.getItem("activate") == "false"); check();')
+toggle_btn.setAttribute('onclick',' localStorage.setItem("activate", localStorage.getItem("activate") == "false"); activated = !activated; toggle_btn.innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; toggle_txt.innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; toggle_txt.style.color = (localStorage.getItem("activate") == "true") ? "green" : "red"; check();')
 toggle.appendChild(toggle_btn)
 tab.appendChild(toggle)
 step_btn.innerText = "Step"

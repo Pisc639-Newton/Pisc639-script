@@ -3,12 +3,14 @@ let tab = document.createElement("div")
 let title = document.createElement("div")
 let toggle = document.createElement("div")
 let stop = document.createElement("div")
+let step = document.createElement("div")
 let last = document.createElement("div")
 let last_txt = document.createElement("a")
 let title_txt = document.createElement("a")
 let toggle_txt = document.createElement("a")
 let toggle_btn = document.createElement("Button")
 let stop_btn = document.createElement("Button")
+let step_btn = document.createElement("Button")
 let activated = false
 title_txt.innerText = "Hack Tools"
 title_txt.style.width = "100%"
@@ -26,7 +28,7 @@ title.style.backgroundColor = "#ddd"
 title.style.cursor = "grab"
 dragElement(title)
 tab.appendChild(title)
-toggle_txt.innerText = "Disabled"
+toggle_txt.innerText = "Done All: Disabled"
 toggle_txt.style.color = "red"
 toggle_txt.style.padding = "10px"
 toggle_txt.style.alignSelf = "center"
@@ -34,9 +36,23 @@ toggle.appendChild(toggle_txt)
 toggle_btn.innerText = "Enable"
 toggle_btn.style.width = "auto"
 toggle_btn.style.borderBottomWidth = "0"
-toggle_btn.setAttribute('onclick','activated = !activated; toggle_btn.innerText = activated ? "Disable" : "Enable"; toggle_txt.innerText = activated ? "Enabled" : "Disabled"; toggle_txt.style.color = activated ? "green" : "red"; localStorage.setItem("activate", localStorage.getItem("activate") == "false"); check();')
+toggle_btn.setAttribute('onclick','activated = !activated; toggle_btn.innerText = activated ? "Disable" : "Enable"; toggle_txt.innerText = activated ? "Done All: Enabled" : "Done All: Disabled"; toggle_txt.style.color = activated ? "green" : "red"; localStorage.setItem("activate", localStorage.getItem("activate") == "false"); check();')
 toggle.appendChild(toggle_btn)
 tab.appendChild(toggle)
+step_btn.innerText = "Step"
+step_btn.style.color = "green"
+step_btn.style.width = "100%"
+step_btn.style.height = "min-content"
+step_btn.style.borderLeftWidth = "0"
+step_btn.style.borderRightWidth = "0"
+step_btn.style.borderBottomWidth = "0"
+step_btn.setAttribute('onclick', 'run();')
+step_btn.style.margin = "auto"
+step.appendChild(step_btn)
+step.style.width = "100%"
+step.style.alignItems = "center"
+step.style.display = "flex"
+tab.appendChild(step)
 stop_btn.innerText = "Stop Script"
 stop_btn.style.color = "red"
 stop_btn.style.width = "100%"
@@ -68,7 +84,7 @@ last.style.backgroundColor = "#ddd"
 tab.appendChild(last)
 tab.getElementsByTagName("br").style = "display: none;"
 tab.id = "hack-tools"
-tab.style.width = "200px"
+tab.style.width = "250px"
 tab.style.background = "white"
 tab.style.border = "2px solid black"
 tab.style.borderRadius = "5px"
@@ -78,5 +94,6 @@ tab.style.left = localStorage.getItem("left") + "px"
 tab.style.zIndex = "999999"
 tab.style.alignItems = "center"
 document.body.appendChild(tab)
-function check() {if(localStorage.getItem("activate")=="true"&&!tab.matches(":hover")){fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));}};
-onmousemove(check())
+function run() {fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));};
+function check() {if(localStorage.getItem("activate")==="true"&&!tab.matches(":hover")){step();}};
+if(!window.location.pathname.includes('student-assigned-list')) {run();};

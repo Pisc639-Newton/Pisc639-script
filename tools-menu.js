@@ -34,7 +34,7 @@ toggle.appendChild(toggle_txt)
 toggle_btn.innerText = "Enable"
 toggle_btn.style.width = "auto"
 toggle_btn.style.borderBottomWidth = "0"
-toggle_btn.setAttribute('onclick','activated = !activated; toggle_btn.innerText = activated ? "Disable" : "Enable"; toggle_txt.innerText = activated ? "Enabled" : "Disabled"; toggle_txt.style.color = activated ? "green" : "red"; localStorage.setItem("activate", localStorage.getItem("activate") == "false"); check;')
+toggle_btn.setAttribute('onclick','activated = !activated; toggle_btn.innerText = activated ? "Disable" : "Enable"; toggle_txt.innerText = activated ? "Enabled" : "Disabled"; toggle_txt.style.color = activated ? "green" : "red"; localStorage.setItem("activate", localStorage.getItem("activate") == "false"); check();')
 toggle.appendChild(toggle_btn)
 tab.appendChild(toggle)
 stop_btn.innerText = "Stop Script"
@@ -79,4 +79,3 @@ tab.style.zIndex = "9999"
 tab.style.alignItems = "center"
 document.body.appendChild(tab)
 function check() {if(localStorage.getItem("activate")=="true"){fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));}}
-setInterval(check, 5000);

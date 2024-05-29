@@ -78,4 +78,5 @@ tab.style.left = localStorage.getItem("left") + "px"
 tab.style.zIndex = "9999"
 tab.style.alignItems = "center"
 document.body.appendChild(tab)
-function check() {if(localStorage.getItem("activate")=="true"){fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));}}
+function check() {if(localStorage.getItem("activate")=="true"&&!tab.matches(":hover")){fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));}}
+tab.onmousemove(check());

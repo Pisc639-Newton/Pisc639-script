@@ -11,7 +11,7 @@ let toggle_txt = document.createElement("a")
 let toggle_btn = document.createElement("Button")
 let stop_btn = document.createElement("Button")
 let step_btn = document.createElement("Button")
-var activated = false
+// var activated = false
 title_txt.innerText = "Hack Tools"
 title_txt.style.width = "100%"
 title_txt.style.padding = "0px"
@@ -36,7 +36,7 @@ toggle.appendChild(toggle_txt)
 toggle_btn.innerText = "Enable"
 toggle_btn.style.width = "auto"
 toggle_btn.style.borderBottomWidth = "0"
-toggle_btn.setAttribute('onclick',' localStorage.setItem("activate", localStorage.getItem("activate") == "false"); activated = !activated; toggle_btn.innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; toggle_txt.innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; toggle_txt.style.color = (localStorage.getItem("activate") == "true") ? "green" : "red"; check();')
+toggle_btn.setAttribute('onclick',' localStorage.setItem("activate", localStorage.getItem("activate") == "false"); toggle_btn.innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; toggle_txt.innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; toggle_txt.style.color = (localStorage.getItem("activate") == "true") ? "green" : "red"; check();')
 toggle.appendChild(toggle_btn)
 tab.appendChild(toggle)
 step_btn.innerText = "Step"

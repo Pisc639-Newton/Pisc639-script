@@ -72,7 +72,7 @@ localStorage.setItem("done", localStorage.getItem("done"));
 localStorage.setItem("undone", localStorage.getItem("undone"));
 localStorage.setItem("top", localStorage.getItem("top") ? localStorage.getItem("top") : 10);
 localStorage.setItem("left", localStorage.getItem("left") ? localStorage.getItem("left") : 10);
-if (localStorage.getItem("activate") == "true") {document.getElementById("toggle_btn").click(); localStorage.setItem("activate", "true");};
+if (localStorage.getItem("activate") == "true") {toggle_btn.click(); localStorage.setItem("activate", "true");};
 if (window.location.pathname.includes('student-assigned-list')) {localStorage.setItem("done", $('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style && !style.includes('background:') && style.includes('background-color:');}).length);};
 if (window.location.pathname.includes('student-assigned-list')) {localStorage.setItem("undone", $('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style && style.includes('background:') && !style.includes('background-color:');}).length);};
 last_txt.innerHTML = `<a style="color: green;">Done</a>: ${localStorage.getItem("done")}<br><a style="color: red;">Undone:</a> ${localStorage.getItem("undone")}`

@@ -79,4 +79,4 @@ tab.style.zIndex = "9999"
 tab.style.alignItems = "center"
 document.body.appendChild(tab)
 function check() {if(localStorage.getItem("activate")=="true"){fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));}}
-setInterval(check, 1000);
+setInterval(check, 5000);

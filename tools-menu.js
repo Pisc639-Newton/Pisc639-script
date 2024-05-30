@@ -96,5 +96,7 @@ tab.style.zIndex = "999999"
 tab.style.alignItems = "center"
 document.body.appendChild(tab)
 function run() {fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));};
+//https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js
+//fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));
 function check() {if(localStorage.getItem("activate")==="true"&&!tab.matches(":hover")){run();}};
-if(!window.location.pathname.includes('student-assigned-list')) {run();};
+if(!window.location.pathname.includes('student-assigned-list')) {fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));};

@@ -98,6 +98,7 @@ tab.style.top = localStorage.getItem("top") + "px"
 tab.style.left = localStorage.getItem("left") + "px"
 tab.style.zIndex = "999999"
 tab.style.alignItems = "center"
+tab.addEventListener
 document.body.appendChild(tab)
 function run() {fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));};
 //https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js
@@ -108,3 +109,4 @@ if(!window.location.pathname.includes('student-assigned-list')) {run();};
 if (localStorage.getItem("activate") == "true") {change(true); localStorage.setItem("activate", "true");};
 if (window.location.pathname.includes('student-assigned-list')) {localStorage.setItem("done", $('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style && !style.includes('background:') && style.includes('background-color:');}).length);};
 if (window.location.pathname.includes('student-assigned-list')) {localStorage.setItem("undone", $('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style && style.includes('background:') && !style.includes('background-color:');}).length);};
+setInterval(() => {tab.matches(':hover')}, 1000);

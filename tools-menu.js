@@ -37,7 +37,10 @@ toggle_btn.innerText = "Enable"
 toggle_btn.style.width = "auto"
 toggle_btn.style.borderBottomWidth = "0"
 toggle_btn.id = "toggle_btn"
-toggle_btn.setAttribute('onclick',' localStorage.setItem("activate", localStorage.getItem("activate") == "false"); document.getElementById("toggle_btn").innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; toggle_txt.innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; toggle_txt.style.color = (localStorage.getItem("activate") == "true") ? "green" : "red"; check();')
+//toggle_btn.setAttribute('onclick',' localStorage.setItem("activate", localStorage.getItem("activate") == "false"); document.getElementById("toggle_btn").innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; toggle_txt.innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; toggle_txt.style.color = (localStorage.getItem("activate") == "true") ? "green" : "red"; check();')
+toggle_btn.addEventListener("click", function() {
+    localStorage.setItem("activate", localStorage.getItem("activate") == "false"); toggle_btn.innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; toggle_txt.innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; toggle_txt.style.color = (localStorage.getItem("activate") == "true") ? "green" : "red"; check();
+})
 toggle.appendChild(toggle_btn)
 tab.appendChild(toggle)
 step_btn.innerText = "Step"
@@ -47,6 +50,7 @@ step_btn.style.height = "min-content"
 step_btn.style.borderLeftWidth = "0"
 step_btn.style.borderRightWidth = "0"
 step_btn.style.borderBottomWidth = "0"
+//step_btn.setAttribute('onclick', 'run();')
 step_btn.addEventListener("click", run)
 step_btn.style.margin = "auto"
 step.appendChild(step_btn)
@@ -60,7 +64,8 @@ stop_btn.style.width = "100%"
 stop_btn.style.height = "min-content"
 stop_btn.style.borderLeftWidth = "0"
 stop_btn.style.borderRightWidth = "0"
-stop_btn.setAttribute('onclick','localStorage.getItem("activate")=="true" ? document.getElementById("toggle_btn").click() : null;')
+//stop_btn.setAttribute('onclick','localStorage.getItem("activate")=="true" ? document.getElementById("toggle_btn").click() : null;')
+stop_btn.addEventListener("click", function() {if (localStorage.getItem("activate") == "true") {localStorage.setItem("activate", "false");};})
 stop_btn.style.margin = "auto"
 stop.appendChild(stop_btn)
 stop.style.width = "100%"

@@ -104,6 +104,6 @@ function run() {fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-
 //fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));
 function check() {if(localStorage.getItem("activate")==="true"&&!tab.matches(":hover")){run();}};
 if(!window.location.pathname.includes('student-assigned-list')) {run();};
-if (localStorage.getItem("activate") == "true") {toggle_btn.click(); localStorage.setItem("activate", "true");};
+//if (localStorage.getItem("activate") == "true") {toggle_btn.click(); localStorage.setItem("activate", "true");};
 if (window.location.pathname.includes('student-assigned-list')) {localStorage.setItem("done", $('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style && !style.includes('background:') && style.includes('background-color:');}).length);};
 if (window.location.pathname.includes('student-assigned-list')) {localStorage.setItem("undone", $('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style && style.includes('background:') && !style.includes('background-color:');}).length);};

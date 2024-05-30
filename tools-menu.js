@@ -40,7 +40,7 @@ toggle_btn.style.borderBottomWidth = "0"
 toggle_btn.id = "toggle_btn"
 //toggle_btn.setAttribute('onclick',' localStorage.setItem("activate", localStorage.getItem("activate") == "false"); document.getElementById("toggle_btn").innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; toggle_txt.innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; toggle_txt.style.color = (localStorage.getItem("activate") == "true") ? "green" : "red"; check();')
 toggle_btn.addEventListener("click", function() {
-    localStorage.setItem("activate", localStorage.getItem("activate") == "false"); $("#toggle_btn").innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; $("#toggle_txt")[0].innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; $("#toggle_txt")[0].style.color = (localStorage.getItem("activate") == "true") ? "green" : "red"; check();
+    localStorage.setItem("activate", localStorage.getItem("activate") == "false"); $("#toggle_btn")[0].innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; $("#toggle_txt")[0].innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; $("#toggle_txt")[0].style.color = (localStorage.getItem("activate") == "true") ? "green" : "red"; check();
 })
 toggle.appendChild(toggle_btn)
 tab.appendChild(toggle)

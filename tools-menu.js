@@ -47,7 +47,7 @@ step_btn.style.height = "min-content"
 step_btn.style.borderLeftWidth = "0"
 step_btn.style.borderRightWidth = "0"
 step_btn.style.borderBottomWidth = "0"
-step_btn.setAttribute('onclick', 'run();')
+step_btn.addEventListener("click", run)
 step_btn.style.margin = "auto"
 step.appendChild(step_btn)
 step.style.width = "100%"
@@ -99,4 +99,4 @@ function run() {fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-
 //https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js
 //fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));
 function check() {if(localStorage.getItem("activate")==="true"&&!tab.matches(":hover")){run();}};
-if(!window.location.pathname.includes('student-assigned-list')) {fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));};
+if(!window.location.pathname.includes('student-assigned-list')) {run();};

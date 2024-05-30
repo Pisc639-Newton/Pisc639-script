@@ -41,7 +41,7 @@ toggle_btn.id = "toggle_btn"
 //toggle_btn.setAttribute('onclick',' localStorage.setItem("activate", localStorage.getItem("activate") == "false"); document.getElementById("toggle_btn").innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; toggle_txt.innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; toggle_txt.style.color = (localStorage.getItem("activate") == "true") ? "green" : "red"; check();')
 toggle_btn.addEventListener("click", function() {
     //let tb = 
-    localStorage.setItem("activate", localStorage.getItem("activate") == "false"); $("#toggle_btn")[0].innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; $("#toggle_txt")[0].innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; $("#toggle_txt")[0].style.color = (localStorage.getItem("activate") == "true") ? "green" : "red"; check();
+    localStorage.setItem("activate", localStorage.getItem("activate") == "false"); $("#toggle_btn")[0].innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; $("#toggle_txt")[0].innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; $("#toggle_txt")[0].style.color = (localStorage.getItem("activate") == "true") ? "green" : "red";
 })
 toggle.appendChild(toggle_btn)
 tab.appendChild(toggle)
@@ -103,10 +103,16 @@ document.body.appendChild(tab)
 function run() {fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));};
 //https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js
 //fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));
-function check() {if(localStorage.getItem("activate")==="true"&&!tab.matches(":hover")){run();}};
-function change(to) {$("#toggle_btn")[0].innerText = to ? "Disable" : "Enable"; $("#toggle_txt")[0].innerText = to ? "Done All: Enabled" : "Done All: Disabled"; $("#toggle_txt")[0].style.color = to ? "green" : "red";};
+function force(to) {$("#toggle_btn")[0].innerText = to ? "Disable" : "Enable"; $("#toggle_txt")[0].innerText = to ? "Done All: Enabled" : "Done All: Disabled"; $("#toggle_txt")[0].style.color = to ? "green" : "red"; localStorage.setItem("activate", to ? "true" : "false");};
 if(!window.location.pathname.includes('student-assigned-list')) {run();};
-if (localStorage.getItem("activate") == "true") {change(true); localStorage.setItem("activate", "true");};
 if (window.location.pathname.includes('student-assigned-list')) {localStorage.setItem("done", $('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style && !style.includes('background:') && style.includes('background-color:');}).length);};
 if (window.location.pathname.includes('student-assigned-list')) {localStorage.setItem("undone", $('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style && style.includes('background:') && !style.includes('background-color:');}).length);};
-setInterval(() => {tab.matches(':hover')}, 1000);
+//setInterval(() => {console.log(tab.matches(':hover')?"yes":"no")}, 1000);
+//tab.matches(':hover')
+setTimeout(() => {
+    if (localStorage.getItem("activate") == "true") {
+        force(true); localStorage.setItem("activate", "true");
+        if (tab.matches(":hover")) {force(false);} else {run();};
+    };
+}, 250);
+tab.addEventListener("mouseleave", function() {if(localStorage.getItem("activate") == "true") {run();}});

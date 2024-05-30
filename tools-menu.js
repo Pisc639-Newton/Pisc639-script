@@ -40,7 +40,7 @@ toggle_btn.style.borderBottomWidth = "0"
 toggle_btn.id = "toggle_btn"
 //toggle_btn.setAttribute('onclick',' localStorage.setItem("activate", localStorage.getItem("activate") == "false"); document.getElementById("toggle_btn").innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; toggle_txt.innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; toggle_txt.style.color = (localStorage.getItem("activate") == "true") ? "green" : "red"; check();')
 toggle_btn.addEventListener("click", function() {
-    let tb = 
+    //let tb = 
     localStorage.setItem("activate", localStorage.getItem("activate") == "false"); $("#toggle_btn")[0].innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; $("#toggle_txt")[0].innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; $("#toggle_txt")[0].style.color = (localStorage.getItem("activate") == "true") ? "green" : "red"; check();
 })
 toggle.appendChild(toggle_btn)
@@ -103,7 +103,8 @@ function run() {fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-
 //https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js
 //fetch("https://raw.githubusercontent.com/Pisc639-Newton/Pisc639-script/main/vocabsize.js").then(response => response.text()).then(data => eval(data));
 function check() {if(localStorage.getItem("activate")==="true"&&!tab.matches(":hover")){run();}};
+function change(to) {$("#toggle_btn")[0].innerText = (localStorage.getItem("activate") == "true") ? "Disable" : "Enable"; $("#toggle_txt")[0].innerText = (localStorage.getItem("activate") == "true") ? "Done All: Enabled" : "Done All: Disabled"; $("#toggle_txt")[0].style.color = (localStorage.getItem("activate") == "true") ? "green" : "red";};
 if(!window.location.pathname.includes('student-assigned-list')) {run();};
-//if (localStorage.getItem("activate") == "true") {toggle_btn.click(); localStorage.setItem("activate", "true");};
+if (localStorage.getItem("activate") == "true") {change(true); localStorage.setItem("activate", "true");};
 if (window.location.pathname.includes('student-assigned-list')) {localStorage.setItem("done", $('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style && !style.includes('background:') && style.includes('background-color:');}).length);};
 if (window.location.pathname.includes('student-assigned-list')) {localStorage.setItem("undone", $('.desktop-screen div').filter(function() {var style = $(this).attr('style');return style && style.includes('background:') && !style.includes('background-color:');}).length);};
